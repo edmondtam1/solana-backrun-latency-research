@@ -88,7 +88,8 @@ We looked at lost races on-chain, comparing the first competing arb with our tra
   one win realised exactly the predicted net.
 - **The timing model was pre-registered.** We predicted the accelerated feed's effect before the run. The landing
   time (57 ms vs predicted 35–125) and same-block share (68% vs 62–81%) came in inside the prediction; the win rate
-  (2.6% vs 5–33%) fell below it. That points to private flow, not speed.
+  (2.6% vs 5–33%) fell below it. The faster feed moved us as predicted, but
+  not far enough to win: what's left is private flow plus ordering inside the block.
 - **Time conversion:** times come from block positions at ~1.3 transactions per ms, so treat them as estimates.
 
 ## Conclusion
