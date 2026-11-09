@@ -72,6 +72,25 @@ We looked at lost races on-chain, comparing the first competing arb with our tra
 - **Priority fees aren't the gap.** We paid more priority per CU than the median winner and still landed behind.
   Most winners paid no tip at all.
 
+## Us vs the winners
+
+| | Us: standard gRPC | Us: accelerated gRPC | Winners |
+|---|---|---|---|
+| Sample | 175 races, 2 h | 39 races, 14 min | 120 races (separate day) |
+| Landing time after the trigger (median) | ~111 ms | ~57 ms | ~5 ms (all); ~18 ms (excl. trigger +1) |
+| Landed in the trigger's block | 52% | 68% | ~80% |
+| Races won | 0 / 175 | 1 / 39 | n/a |
+| Priority per CU (median) | — | 231k µL | 90k µL |
+| Paid a send-service tip | — | — | 27% |
+| Net per won race | — | 0.00036 SOL (n = 1) | median ~0.0001 SOL; p75 ~0.0008 SOL |
+
+- **The quotes aren't the problem.** 104 of 122 checked opportunities matched the on-chain result exactly, and the
+  one win realised exactly the predicted net.
+- **The timing model was pre-registered.** We predicted the accelerated feed's effect before the run. The landing
+  time (57 ms vs predicted 35–125) and same-block share (68% vs 62–81%) came in inside the prediction; the win rate
+  (2.6% vs 5–33%) fell below it. That points to private flow, not speed.
+- **Time conversion:** times come from block positions at ~1.3 transactions per ms, so treat them as estimates.
+
 ## Conclusion
 
 - **The public path tops out short of the winners.** On the public path (fastest feed, any send route, competitive
